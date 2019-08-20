@@ -96,3 +96,17 @@ yarn serve
 # build
 yarn build
 ```
+
+### dependence
+
+
+- [X] rollup : generate libs `js` `ts` `css`
+- [X] html2canvas : compute the menubox size
+- [X] typescript
+- [X] babel
+- [X] some other dev and package plugins see [package.json](./package.json)
+
+
+### License
+
+[LGPL-3.0-or-later](./GNU-AGPL-3.0.txt)
