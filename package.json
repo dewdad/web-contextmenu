@@ -1,0 +1,50 @@
+{
+  "title": "contextmenu",
+  "name": "@robotic/contextmenu",
+  "description": "contextmenu for html5",
+  "main": "dist/jcontextmenu.js",
+  "module": "dist/contextmenu.esm.js",
+  "typings": "dist/types/index.d.ts",
+  "browser": "dist/contextmenu.js",
+  "version": "0.0.1",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development && webpack-dev-server --mode=development --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production && webpack --mode=production --config webpack.config.js"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mr.Fan",
+    "email": "zlhc@live.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:robotism/js-contextmenu.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robotism/js-contextmenu/issues"
+  },
+  "homepage": "https://js-contextmenu.hertzen.com",
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "@types/webpack": "^4.39.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

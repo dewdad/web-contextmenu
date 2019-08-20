@@ -1,0 +1,104 @@
+
+.no-select {
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.__context__menu__box {
+    background: white;
+    stroke-width: 1px;
+    stroke: white;
+    border: 0px solid #999;
+    border-radius: 2px;
+    box-shadow: 0px 0px 8px 3px #aaaaaa;
+    overflow: auto;
+}
+
+.__context__menu__box::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 5px
+}
+
+.__context__menu__box::-webkit-scrollbar-button:vertical {
+    display: none
+}
+
+.__context__menu__box::-webkit-scrollbar-track:vertical {
+    background-color: orange;
+}
+
+.__context__menu__box::-webkit-scrollbar-track-piece {
+    background: #F4F4F4
+}
+
+.__context__menu__box::-webkit-scrollbar-thumb:vertical {
+    background-color: orange;
+    border-radius: 5px
+}
+
+.__context__menu__box::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: darkorange;
+}
+
+.__context__menu__box::-webkit-scrollbar-corner:vertical {
+    background-color: #535353
+}
+
+.__context__menu__item {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    display: -webkit-flex;
+}
+
+
+.__context__menu__item-hover {
+    border-radius: 1px;
+    background-color: lightgray;
+    color: white;
+}
+
+.__context__menu__item_icon {
+    width: 20px;
+    height: 20px;
+    min-width: 8px;
+    border-radius: 2px;
+    margin: 6px;
+}
+
+.__context__menu__item_text {
+    margin-left: 4px;
+    margin-right: 16px;
+    flex-grow: 1;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.__context__menu__item_hotkey {
+    margin-left: 12px;
+    margin-right: 8px;
+    font-size: 8px;
+    color: #aaaaaa;
+}
+
+.__context__menu__item_arrow {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
+.__context__menu__item_divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(196, 196, 196, 0.5);
+}
