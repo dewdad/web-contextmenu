@@ -25,3 +25,4 @@ yarn-error.log*
 /types
 
 yarn.lock
+.rpt2*

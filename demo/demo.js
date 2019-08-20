@@ -1,6 +1,6 @@
 "use strict";
 
-import ContextMenu from "../src/ContextMenu.ts";
+
 
 const copy = function () {
     const testData = "这是复制文字";
@@ -23,7 +23,11 @@ const paste = function () {
         navigator.clipboard
             .readText()
             .then(data => {
-                alert("paste success: " + data);
+                if(data && data.length>0){
+                    alert("paste success: " + data);
+                }else{
+                    alert("paste success: no data" );
+                }
             })
             .catch(() => {
                 alert("paste failed: " + data);
@@ -33,7 +37,7 @@ const paste = function () {
     }
 }
 
-const menulist = (function menulist() {
+const menulist = (function () {
     const toast = function (m) {
         alert(m.index + ":" + m.name);
     };
@@ -56,8 +60,8 @@ const menulist = (function menulist() {
 
     builder.divider();
 
-    builder.item("copy", copy, "ctrl+c", "/icon/copy.png");
-    builder.item("paste", paste, "ctrl+v", "/icon/paste.png");
+    builder.item("copy", copy, "ctrl+c", "./icon/copy.png");
+    builder.item("paste", paste, "ctrl+v", "./icon/paste.png");
 
     builder.divider();
 
@@ -67,19 +71,12 @@ const menulist = (function menulist() {
             location.reload();
         },
         null,
-        "/icon/refresh.png"
+        "./icon/refresh.png"
     );
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/image/about.png");
-    builder.item("about", null, null, "/image/about.png");
-
+    for(let i=0;i<10;i++){
+        builder.item("about", toast, null, "./icon/about.png");
+    }
+    builder.item("no-click");
 
 
     return builder.build();
@@ -92,4 +89,3 @@ const div=document.getElementsByClassName("big")[0];
 div.oncontextmenu=()=>{
     ContextMenu.show(menulist);
 };
-

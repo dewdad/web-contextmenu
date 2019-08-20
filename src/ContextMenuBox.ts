@@ -4,14 +4,15 @@ import Menu from "./Menu";
 
 import html2canvas from "html2canvas";
 
-import ContextMenu from "./ContextMenu";
 
 const MenuBoxClassName = "no-select __context__menu__box";
 const MenuItemClassName = "__context__menu__item";
 const MenuItemHoverClassName = "__context__menu__item-hover";
 
 class ContextMenuBox {
-    constructor() {
+    private readonly  manager:any;
+    constructor(manager:any) {
+        this.manager=manager;
     }
 
     add(menu: Menu) {
@@ -156,7 +157,7 @@ class ContextMenuBox {
 
                 if (item.onclick) {
                     div.onclick = () => {
-                        ContextMenu.hide();
+                        this.manager.hide();
                         setTimeout(() => {
                             if (item.onclick) {
                                 item.onclick(item);

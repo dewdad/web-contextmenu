@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import ContextMenuBox from "./ContextMenuBox";
 
 class ContextMenuManager {
-  readonly boxes: ContextMenuBox = new ContextMenuBox();
+  readonly boxes: ContextMenuBox = new ContextMenuBox(this);
 
   show(menu: Menu): void {
     this.boxes.add(menu);

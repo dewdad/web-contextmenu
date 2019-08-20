@@ -10,6 +10,13 @@
 - [X] auto adjust location(keep menu in browser of visibility area)
 - [X] infinite sub level
 
+### install
+```sh
+npm i @robotic/contextmenu
+# or
+yarn add @robotic/contextmenu
+```
+
 ### Usage in html5
 
 ```javascript
@@ -61,4 +68,10 @@ export default {
     },
 }
 </script>
+```
+
+
+### Usage in React
+```react
+
 ```

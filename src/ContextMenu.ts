@@ -83,6 +83,10 @@ const ContextMenu: any = {
   }
 };
 
-Object.defineProperty(window,"ContextMenu",ContextMenu);
+Object.defineProperty(window,"ContextMenu",{
+  value:ContextMenu,
+  writable:false,
+  configurable:false,
+});
 
 export default ContextMenu;
