@@ -16,6 +16,14 @@ npm i @robotic/contextmenu
 # or
 yarn add @robotic/contextmenu
 ```
+### ScreenCap
+
+- auto locate
+![](./screenshort/contextmenu1.gif)
+- clickable & scrollable
+![](./screenshort/contextmenu2.gif)
+- autohide
+![](./screenshort/contextmenu3.gif)
 
 ### Usage in html5
 
@@ -74,4 +82,17 @@ export default {
 ### Usage in React
 ```react
 
+```
+
+
+
+### Build
+
+
+```sh
+# serve
+yarn serve
+
+# build
+yarn build
 ```

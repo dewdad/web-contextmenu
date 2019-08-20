@@ -7,13 +7,13 @@
   "module": "dist/contextmenu.esm.js",
   "browser": "dist/contextmenu.js",
   "style": "dist/contextmenu.css",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "scripts": {
     "clean": "rm -rf .rpt2*",
     "clear": "rm -rf dist && yarn clean",
     "serve": "rollup -c -w && yarn clean",
     "build": "tsc && cross-env NODE_ENV=production rollup -c && yarn clean",
-    "publish": "npm publish --access=public && yarn clean",
+    "publish": "yarn build && npm publish --access=public && yarn clean",
     "unpublish": "npm unpublish @robotic/contextmenu -force"
   },
   "keywords": [
