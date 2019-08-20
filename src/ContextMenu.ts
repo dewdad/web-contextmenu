@@ -1,5 +1,7 @@
 "use strict";
 
+import "./ContextMenu.css";
+
 import ContextMenuManager from "./ContextMenuManager";
 import MenuBuilder from "./MenuBuilder";
 import MenuItem from "./MenuItem";
@@ -16,15 +18,14 @@ const ContextMenu: any = {
     if(state.installed){
       return;
     }
-      state.installed=true;
+    state.installed=true;
 
     if (Vue) {
       Vue.prototype.$menu = this;
     }
 
-    window.addEventListener("click", this.hide);
-    window.addEventListener("keyup", this.hide);
-    window.addEventListener("resize", this.hide);
+    window.addEventListener("click", this.hide,true);
+    window.addEventListener("resize", this.hide,true);
   },
 
   builder() {

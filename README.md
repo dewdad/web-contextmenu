@@ -1,6 +1,14 @@
 # Html5 ContextMenu
 
 
+- [X] support html5 and other framework sub as vue
+- [X] item icon & hotkey string & submenu arrow
+- [X] auto size
+- [X] custom css
+- [X] simply & easily
+- [X] auto hide (when click outer & resize)
+- [X] auto adjust location(keep menu in browser of visibility area)
+- [X] infinite sub level
 
 ### Usage in html5
 
@@ -27,8 +35,11 @@ document.getElementById("xx").oncontextmenu=function(e) {
 
 ```typescript
 import Vue from "vue";
-import  ContextMenu from "@robotic/contextmenu";
+
+import ContextMenu from "@robotic/contextmenu";
+import "@robotic/contextmenu/dist/contextmenu.css";
 Vue.use(ContextMenu);
+
 ```
 
 ```vue

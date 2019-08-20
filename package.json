@@ -2,16 +2,35 @@
   "title": "contextmenu",
   "name": "@robotic/contextmenu",
   "description": "contextmenu for html5",
-  "main": "dist/jcontextmenu.js",
+  "typings": "dist/types/contextmenu.d.ts",
+  "main": "dist/contextmenu.js",
   "module": "dist/contextmenu.esm.js",
-  "typings": "dist/types/index.d.ts",
   "browser": "dist/contextmenu.js",
-  "version": "0.0.1",
+  "style": "dist/contextmenu.css",
+  "version": "0.1.8",
   "scripts": {
-    "serve": "cross-env NODE_ENV=development && webpack-dev-server --mode=development --config webpack.config.js",
-    "build": "cross-env NODE_ENV=production && webpack --mode=production --config webpack.config.js"
+    "clear": "rm -rf dist lib type",
+    "build": "clear && tsc && rollup -c && rm -rf .rpt2*"
   },
-  "license": "MIT",
+  "keywords": [
+    "menu",
+    "contextmenu",
+    "right click",
+    "html",
+    "html5",
+    "web",
+    "js",
+    "javascript",
+    "ts",
+    "typescript",
+    "vue",
+    "react",
+    "browser"
+  ],
+  "files": [
+    "dist"
+  ],
+  "license": "LGPL-3.0-or-later",
   "author": {
     "name": "Mr.Fan",
     "email": "zlhc@live.com"
@@ -23,23 +42,36 @@
   "bugs": {
     "url": "https://github.com/robotism/js-contextmenu/issues"
   },
-  "homepage": "https://js-contextmenu.hertzen.com",
+  "homepage": "https://github.com/robotism/js-contextmenu",
   "devDependencies": {
+    "@babel/core": "^7.5.5",
     "@types/node": "^12.7.2",
-    "@types/webpack": "^4.39.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-latest": "^6.24.1",
     "cross-env": "^5.2.0",
-    "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
-    "html-webpack-plugin": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "livereload": "^0.8.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-simple-vars": "^5.0.2",
+    "rollup": "^1.19.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "rollup-plugin-uglify": "^6.0.2",
+    "rollup-watch": "^4.3.1",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "^2.1.0",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "typescript": "^3.5.3"
   },
   "dependencies": {
     "html2canvas": "^1.0.0-rc.3"

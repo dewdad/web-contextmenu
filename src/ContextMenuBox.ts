@@ -2,7 +2,7 @@
 
 import Menu from "./Menu";
 
-const html2canvas = require("html2canvas");
+import html2canvas from "html2canvas";
 
 import ContextMenu from "./ContextMenu";
 
@@ -156,12 +156,12 @@ class ContextMenuBox {
 
                 if (item.onclick) {
                     div.onclick = () => {
+                        ContextMenu.hide();
                         setTimeout(() => {
                             if (item.onclick) {
                                 item.onclick(item);
                             }
                         }, 50);
-                        ContextMenu.hide();
                     };
                 }
             }

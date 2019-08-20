@@ -77,8 +77,8 @@ const menulist = (function menulist() {
     builder.item("about", null, null, "/icon/about.png");
     builder.item("about", null, null, "/icon/about.png");
     builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
-    builder.item("about", null, null, "/icon/about.png");
+    builder.item("about", null, null, "/image/about.png");
+    builder.item("about", null, null, "/image/about.png");
 
 
 
