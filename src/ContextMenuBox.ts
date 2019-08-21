@@ -114,12 +114,12 @@ class ContextMenuBox {
             const showHotKeyHint = !showHotKey && hotKeyMax.length > 0;
             const showArrow = item.children.length > 0;
 
-            const name=this.manager.i18n?this.manager.i18n(item.name)||item.name:item.name;
-            if (!name || name.length === 0) {
+            if (!item.name || item.name.length === 0) {
                 div.innerHTML = `
                 <div class="__context__menu__item_divider"></div>
                 `;
             } else {
+                const name=this.manager.i18n?this.manager.i18n(item.name)||item.name:item.name;
                 div.innerHTML = `
 
                 <img class="__context__menu__item_icon" src="${icon}" />
