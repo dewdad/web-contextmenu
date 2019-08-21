@@ -48,6 +48,7 @@ import filesize from 'rollup-plugin-filesize';
 
 // 是否开发环境
 const isDev=process.env.NODE_ENV!=="production";
+console.log(`process.env.NODE_ENV=${process.env.NODE_ENV}`);
 
 // web 服务
 import serve from 'rollup-plugin-serve';

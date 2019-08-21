@@ -13,6 +13,7 @@ const manager = new ContextMenuManager();
 const state={
     installed:false
 };
+
 const ContextMenu: any = {
   install: function(Vue?: any) {
     if(state.installed){
