@@ -134,7 +134,7 @@ export default {
                 comments: /contextmenu/,
             },
             compress: {
-                pure_funcs: ['console.log'] // 去掉console.log函数
+                pure_funcs: isDev?[]:['console.log'] // 去掉console.log函数
             },
         }),
         {banner: banner},

@@ -37,7 +37,7 @@ yarn add @robotic/contextmenu
     <!--  import contextmenu js & css  -->
     <script type="text/javascript" src="../contextmenu.js"></script>
     <link type="text/css" rel="stylesheet" href="./contextmenu.css">
-    
+
     <style>
         html,
         body{
@@ -72,7 +72,7 @@ yarn add @robotic/contextmenu
 
     // register aotuhide events
     ContextMenu.install();
-    
+
     // get target element
     const div=document.getElementsByClassName("big")[0];
     // bind contextmenu event
@@ -120,7 +120,7 @@ export default {
                 location.reload();
             });
             return builder.build();
-        }  
+        }
     },
 }
 </script>
@@ -147,7 +147,7 @@ ContextMenu.install();
 class Login extends React.Component {
 
     // ...
-    
+
     handleContextMenu(e){
         console.log(e)
         const builder = ContextMenu.builder();
@@ -180,26 +180,26 @@ builder.item("alert");
 
 // name with click function
 builder.item("alert",(m)=>{
-    // 
+    //
     alert(m.name);
 });
 
 // name with click function
 builder.item("alert",(m)=>{
-    // 
+    //
     alert(m.name);
 });
 
 // name with with click function and hotkey desc
 builder.item("alert",(m)=>{
-    // 
+    //
     alert(m.name);
 },"ctrl+c");
 
 
 // name with with click function and hotkey desc and icon
 builder.item("alert",(m)=>{
-    // 
+    //
     alert(m.name);
 },"ctrl+c", "./icon/copy.png");
 
@@ -263,6 +263,18 @@ const menulist = (function () {
 })();
 
 ````
+
+### i18n
+
+```javascript
+
+ContextMenu.i18n = (key) => {
+    // replace this method in your use
+    return "i18n:" + key;
+}
+
+```
+![i18n](./screenshort/contextmenu4.png)
 
 ### Build
 

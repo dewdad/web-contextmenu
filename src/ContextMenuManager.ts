@@ -4,15 +4,18 @@ import Menu from "./Menu";
 import ContextMenuBox from "./ContextMenuBox";
 
 class ContextMenuManager {
-  readonly boxes: ContextMenuBox = new ContextMenuBox(this);
+    i18n: (key: string) => string = (key: string) => {
+        return key;
+    };
+    readonly boxes: ContextMenuBox = new ContextMenuBox(this);
 
-  show(menu: Menu): void {
-    this.boxes.add(menu);
-  }
+    show(menu: Menu): void {
+        this.boxes.add(menu);
+    }
 
-  hide(menu?: Menu): void {
-    this.boxes.remove(menu);
-  }
+    hide(menu?: Menu): void {
+        this.boxes.remove(menu);
+    }
 }
 
 export default ContextMenuManager;

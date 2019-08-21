@@ -1,7 +1,6 @@
 "use strict";
 
 
-
 const copy = function () {
     const testData = "这是复制文字";
     if (navigator && navigator.clipboard) {
@@ -23,10 +22,10 @@ const paste = function () {
         navigator.clipboard
             .readText()
             .then(data => {
-                if(data && data.length>0){
+                if (data && data.length > 0) {
                     alert("paste success: " + data);
-                }else{
-                    alert("paste success: no data" );
+                } else {
+                    alert("paste success: no data");
                 }
             })
             .catch(() => {
@@ -73,19 +72,24 @@ const menulist = (function () {
         null,
         "./icon/refresh.png"
     );
-    for(let i=0;i<10;i++){
+    for (let i = 0; i < 10; i++) {
         builder.item("about", toast, null, "./icon/about.png");
     }
     builder.item("no-click");
 
 
     return builder.build();
+
 })();
 
 
 ContextMenu.install();
 
-const div=document.getElementsByClassName("big")[0];
-div.oncontextmenu=()=>{
+ContextMenu.i18n = (key) => {
+    return "i18n:" + key;
+}
+
+const div = document.getElementsByClassName("big")[0];
+div.oncontextmenu = () => {
     ContextMenu.show(menulist);
 };
