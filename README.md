@@ -12,9 +12,9 @@
 
 ### Install
 ```sh
-npm i @robotic/contextmenu
+npm i web-contextmenu
 # or
-yarn add @robotic/contextmenu
+yarn add web-contextmenu
 ```
 ### ScreenCap
 
@@ -97,8 +97,8 @@ yarn add @robotic/contextmenu
 
 import Vue from "vue";
 
-import ContextMenu from "@robotic/contextmenu";
-import "@robotic/contextmenu/dist/contextmenu.css";
+import ContextMenu from "web-contextmenu";
+import "web-contextmenu/contextmenu/dist/contextmenu.css";
 Vue.use(ContextMenu);
 
 ```
@@ -133,8 +133,8 @@ export default {
 
 // import js & css global @file: "src/index.js"
 
-import ContextMenu from "@robotic/contextmenu";
-import "@robotic/contextmenu/dist/contextmenu.css";
+import ContextMenu from "web-contextmenu/contextmenu";
+import "web-contextmenu/contextmenu/dist/contextmenu.css";
 
 ContextMenu.install();
 

@@ -1,20 +1,20 @@
 {
   "title": "contextmenu",
-  "name": "@robotic/contextmenu",
+  "name": "web-contextmenu",
   "description": "contextmenu for html5",
   "typings": "dist/types/contextmenu.d.ts",
   "main": "dist/contextmenu.js",
   "module": "dist/contextmenu.esm.js",
   "browser": "dist/contextmenu.js",
   "style": "dist/contextmenu.css",
-  "version": "0.3.3",
+  "version": "0.0.1",
   "scripts": {
     "clean": "rm -rf .rpt2",
     "clear": "rm -rf dist && yarn clean",
     "serve": "rollup -c -w",
     "build": "tsc && cross-env NODE_ENV=production rollup -c",
     "package:publish": "yarn clear && yarn build && yarn publish --access=public",
-    "package:unpublish": "npm unpublish @robotic/contextmenu --force"
+    "package:unpublish": "npm unpublish web-contextmenu --force"
   },
   "keywords": [
     "menu",
