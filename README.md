@@ -63,15 +63,19 @@ yarn add @robotic/contextmenu
 
 <script type="text/javascript" >
 
+    // build menu list
     const builder = ContextMenu.builder();
     builder.item("refresh", () => {
         location.reload();
     });
     const menulist=builder.build();
 
+    // register aotuhide events
     ContextMenu.install();
     
+    // get target element
     const div=document.getElementsByClassName("big")[0];
+    // bind contextmenu event
     div.oncontextmenu=()=>{
         ContextMenu.show(menulist);
     };
@@ -162,7 +166,103 @@ class Login extends React.Component {
 }
 ```
 
+### MenuBuilder
 
+````javascript
+
+// get builder
+const builder = ContextMenu.builder();
+
+// add menu item
+
+// only name
+builder.item("alert");
+
+// name with click function
+builder.item("alert",(m)=>{
+    // 
+    alert(m.name);
+});
+
+// name with click function
+builder.item("alert",(m)=>{
+    // 
+    alert(m.name);
+});
+
+// name with with click function and hotkey desc
+builder.item("alert",(m)=>{
+    // 
+    alert(m.name);
+},"ctrl+c");
+
+
+// name with with click function and hotkey desc and icon
+builder.item("alert",(m)=>{
+    // 
+    alert(m.name);
+},"ctrl+c", "./icon/copy.png");
+
+// add submenu
+builder.item("alert", null, subMenuBuilder => {
+    subMenuBuilder.item("alert1");
+    subMenuBuilder.item("alert2", null,subMenuBuilder=>{
+        //...
+    });
+});
+
+// gen menulist
+const menulist = builder.build();
+
+
+
+// full demo
+const menulist = (function () {
+    const toast = function (m) {
+        alert(m.index + ":" + m.name);
+    };
+    const builder = ContextMenu.builder();
+    builder.item("alert", null, b => {
+        b.item("alert1", toast);
+        b.item("alert2", toast);
+    });
+
+    builder.item("submenu", toast, b => {
+        b.item("中文中文中文中文中文中文中文", toast);
+        b.item("EnglishEnglishEnglishEnglish", toast, b => {
+            b.item("中文中文中文中文中文中文中文", toast);
+            b.item("EnglishEnglishEnglishEnglish", toast, b => {
+                b.item("中文中文中文中文中文中文中文", toast);
+                b.item("EnglishEnglishEnglishEnglish", toast);
+            });
+        });
+    });
+
+    builder.divider();
+
+    builder.item("copy", copy, "ctrl+c", "./icon/copy.png");
+    builder.item("paste", paste, "ctrl+v", "./icon/paste.png");
+
+    builder.divider();
+
+    builder.item(
+        "refresh",
+        () => {
+            location.reload();
+        },
+        null,
+        "./icon/refresh.png"
+    );
+    for(let i=0;i<10;i++){
+        builder.item("about", toast, null, "./icon/about.png");
+    }
+    builder.item("no-click");
+
+
+    return builder.build();
+})();
+
+````
 
 ### Build
 
