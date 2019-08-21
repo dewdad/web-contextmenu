@@ -184,12 +184,6 @@ builder.item("alert",(m)=>{
     alert(m.name);
 });
 
-// name with click function
-builder.item("alert",(m)=>{
-    //
-    alert(m.name);
-});
-
 // name with with click function and hotkey desc
 builder.item("alert",(m)=>{
     //
