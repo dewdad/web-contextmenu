@@ -11,8 +11,7 @@
   "scripts": {
     "clean": "rm -rf .rpt2",
     "clear": "rm -rf dist && yarn clean",
-    "prettier": "prettier --write src/**/*.ts",
-    "lint": "eslint src --ext .ts --fix",
+    "prettier": "prettier --write **/*.{js,ts}",
     "serve": "rollup -c -w",
     "build": "tsc && cross-env NODE_ENV=production rollup -c",
     "package:publish": "yarn clear && yarn build && yarn publish --access=public",
@@ -95,6 +94,7 @@
     "rollup-plugin-uglify": "^6.0.2",
     "rollup-watch": "^4.3.1",
     "style-loader": "^1.0.0",
+    "stylelint": "^10.1.0",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
@@ -105,14 +105,16 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
     "*.{js,ts}": [
-      "yarn lint",
-      "yarn prettier",
+      "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged"
+    }
   }
 }
