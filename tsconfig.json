@@ -30,16 +30,7 @@
     "noImplicitThis": false,
     // 给错误和消息设置样式，使用颜色和上下文。
     "pretty": true,
-    "lib": [
-      "es2015",
-      "es2016",
-      "es2017",
-      "es2018",
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
+    "lib": ["es2015", "es2016", "es2017", "es2018", "esnext", "dom", "dom.iterable", "scripthost"],
     // 额外支持解构/forof等功能
     "downlevelIteration": true,
     // 是否生成声明文件
@@ -49,11 +40,6 @@
     // 此处设置为node,才能解析import xx from 'xx'
     "moduleResolution": "node"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

@@ -11,7 +11,7 @@
   "scripts": {
     "clean": "rm -rf .rpt2",
     "clear": "rm -rf dist && yarn clean",
-    "prettier": "prettier --write **/*.{js,ts}",
+    "prettier": "prettier --write **/*.{js,ts,json,css}",
     "serve": "rollup -c -w",
     "build": "tsc && cross-env NODE_ENV=production rollup -c",
     "package:publish": "yarn clear && yarn build && yarn publish --access=public",
@@ -32,9 +32,7 @@
     "react",
     "browser"
   ],
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "license": "AGPL-3.0-or-later",
   "author": {
     "name": "Mr.Fan",
@@ -106,10 +104,7 @@
     "node": ">=8.0.0"
   },
   "lint-staged": {
-    "*.{js,ts}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,ts,json,css}": ["prettier --write", "git add"]
   },
   "husky": {
     "hooks": {
