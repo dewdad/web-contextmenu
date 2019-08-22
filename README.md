@@ -258,7 +258,7 @@ const menulist = (function () {
 
 ````
 
-### i18n
+### I18N
 
 ```javascript
 
@@ -270,6 +270,14 @@ ContextMenu.i18n = (key) => {
 ```
 ![i18n](./screenshort/contextmenu4.png)
 
+### Custom CSS
+
+> supported custom css style
+
+```css
+# see "web-contextmenu/contextmenu/dist/contextmenu.css"
+# and define yourself css to override inner css
+```
 ### Build
 
 
@@ -281,7 +289,7 @@ yarn serve
 yarn build
 ```
 
-### dependence
+### Dependencies
 
 
 - [X] [typescript](https://www.typescriptlang.org/)
