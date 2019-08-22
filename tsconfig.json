@@ -7,6 +7,10 @@
     // 支持别名导入:
     // import * as React from "react"
     "esModuleInterop": true,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
     // 目标js的版本
     "target": "es5",
     // 目标代码的模块结构版本
@@ -22,6 +26,10 @@
     // 目标文件所在路径
     "outDir": "dist/lib",
     // 编译过程中需要引入的库文件的列表
+    // 忽略 this 的类型检查, Raise error on this expressions with an implied any type.
+    "noImplicitThis": false,
+    // 给错误和消息设置样式，使用颜色和上下文。
+    "pretty": true,
     "lib": [
       "dom",
       "es5",

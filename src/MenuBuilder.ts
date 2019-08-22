@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import MenuItem from "./MenuItem";
+import MenuItem from './MenuItem';
 
 class MenuBuilderCache {
   name: string;
@@ -9,12 +9,7 @@ class MenuBuilderCache {
   icon?: any;
   hotkey?: string;
 
-  constructor(
-    name: string,
-    click?: Function,
-    option?: string | MenuBuilder,
-    icon?: any
-  ) {
+  constructor(name: string, click?: Function, option?: string | MenuBuilder, icon?: any) {
     this.name = name;
     this.click = click;
     if (option instanceof MenuBuilder) {
@@ -54,7 +49,7 @@ class MenuBuilder {
   }
 
   divider() {
-    this.list.push(new MenuBuilderCache(""));
+    this.list.push(new MenuBuilderCache(''));
   }
 
   build() {
@@ -64,7 +59,7 @@ class MenuBuilder {
       const menuItem = new MenuItem(item.name, item.click);
       menuItem.index = parseInt(index);
       menuItem.icon = item.icon;
-      menuItem.hotkey = item.hotkey || "";
+      menuItem.hotkey = item.hotkey || '';
       menuItem.children = item.builder ? item.builder.build() : [];
       list.push(menuItem);
     }

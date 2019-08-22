@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 class MenuItem {
   _proxy: {
@@ -16,8 +16,8 @@ class MenuItem {
       name: name,
       onclick: callback,
       children: children ? children : [],
-      icon: "",
-      hotkey: ""
+      icon: '',
+      hotkey: ''
     };
   }
 

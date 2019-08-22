@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-import ContextMenuManager from "./ContextMenuManager";
-import MenuItem from "./MenuItem";
-import MenuRect from "./MenuRect";
-import MenuLocator from "./MenuLocator";
+import ContextMenuManager from './ContextMenuManager';
+import MenuItem from './MenuItem';
+import MenuRect from './MenuRect';
+import MenuLocator from './MenuLocator';
 
 class Menu {
   _proxy: {
@@ -19,16 +19,9 @@ class Menu {
   timers: Array<string>;
   onOutTrigger?: Function;
 
-  constructor(
-    option: Menu | ContextMenuManager,
-    id: string,
-    location: MenuRect,
-    list: Array<MenuItem>
-  ) {
-    const parent: Menu | undefined =
-      option instanceof Menu ? option : undefined;
-    const manager: ContextMenuManager =
-      option instanceof Menu ? option._proxy.manager : option;
+  constructor(option: Menu | ContextMenuManager, id: string, location: MenuRect, list: Array<MenuItem>) {
+    const parent: Menu | undefined = option instanceof Menu ? option : undefined;
+    const manager: ContextMenuManager = option instanceof Menu ? option._proxy.manager : option;
     this._proxy = {
       parent: parent,
       manager: manager,
@@ -57,7 +50,7 @@ class Menu {
   }
 
   set id(val: string) {
-    this._proxy.id = val !== undefined && val.length > 0 ? val : "0";
+    this._proxy.id = val !== undefined && val.length > 0 ? val : '0';
   }
 
   get list(): Array<MenuItem> {
@@ -81,7 +74,7 @@ class Menu {
       return;
     }
 
-    const id = "" + (this.id !== undefined ? this.id : "") + index;
+    const id = '' + (this.id !== undefined ? this.id : '') + index;
     const item = this.list[index];
     const location = this.location;
     const children = item.children;
@@ -166,9 +159,7 @@ class Menu {
 
     const child = this._proxy.hoverMenu;
 
-    return child !== undefined && child.hover !== -1
-      ? child.indexInParent()
-      : hoverIndex;
+    return child !== undefined && child.hover !== -1 ? child.indexInParent() : hoverIndex;
   }
 
   childHover() {
@@ -221,7 +212,7 @@ class Menu {
     if (index === -1 || list.length === 0) {
       return 0;
     }
-    for (let i in list) {
+    for (const i in list) {
       if (parseInt(i) >= index) {
         break;
       }
@@ -234,22 +225,20 @@ class Menu {
   }
 
   private getDividerHeight() {
-    const div = document.createElement("div");
-    div.className = "__context__menu__item_divider";
-    div.style.visibility = "hidden";
+    const div = document.createElement('div');
+    div.className = '__context__menu__item_divider';
+    div.style.visibility = 'hidden';
     document.body.appendChild(div);
     const style = window.getComputedStyle(div);
-    const h = parseInt(style.height || "0");
-    const p =
-      parseInt(style.paddingTop || "0") + parseInt(style.paddingBottom || "0");
-    const m =
-      parseInt(style.marginTop || "0") + parseInt(style.marginBottom || "0");
+    const h = parseInt(style.height || '0');
+    const p = parseInt(style.paddingTop || '0') + parseInt(style.paddingBottom || '0');
+    const m = parseInt(style.marginTop || '0') + parseInt(style.marginBottom || '0');
     document.body.removeChild(div);
     return h + p + m;
   }
 
   private fixedLocation(size: any): MenuRect {
-    const pad=4;
+    const pad = 4;
     let index = this._proxy.parent !== undefined ? this.indexInParent() : -1;
 
     const list = this.list;
@@ -294,7 +283,7 @@ class Menu {
     px = dx === -1 ? preXL : preXR;
     py = dy === -1 ? preYU : preYD;
 
-    let pw = mW;
+    const pw = mW;
     let ph = mH;
 
     if (ph > sr.h) {
@@ -306,7 +295,7 @@ class Menu {
       py = Math.min(sr.b - mH, preYD);
     }
 
-    if(py<sr.t-pad){
+    if (py < sr.t - pad) {
       py = sr.b - mH;
     }
 
