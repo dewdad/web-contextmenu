@@ -1,5 +1,7 @@
 'use strict';
 
+import 'babel-polyfill';
+
 import './ContextMenu.css';
 
 import ContextMenuManager from './ContextMenuManager';

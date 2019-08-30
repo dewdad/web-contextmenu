@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import babel from 'rollup-plugin-babel';
 // 为了让rollup识别commonjs类型的包,默认只支持导入ES6
@@ -14,7 +14,6 @@ import pkg from './package.json';
 // 代码生成sourcemaps
 import sourceMaps from 'rollup-plugin-sourcemaps';
 
-
 import postcss from 'rollup-plugin-postcss';
 // PostCSS plugins
 import simplevars from 'postcss-simple-vars';
@@ -27,7 +26,7 @@ import {eslint} from 'rollup-plugin-eslint';
 import tslint from 'rollup-plugin-tslint';
 
 // 最小化编译
-import {terser} from "rollup-plugin-terser";
+import {terser} from 'rollup-plugin-terser';
 
 // ts转js的编译器
 import typescript from 'rollup-plugin-typescript2';
@@ -47,7 +46,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import filesize from 'rollup-plugin-filesize';
 
 // 是否开发环境
-const isDev=process.env.NODE_ENV!=="production";
+const isDev = process.env.NODE_ENV !== 'production';
 console.log(`process.env.NODE_ENV=${process.env.NODE_ENV}`);
 
 // web 服务
@@ -58,106 +57,99 @@ import livereload from 'rollup-plugin-livereload';
 import localResolve from 'rollup-plugin-local-resolve';
 
 // 多个入口
-import multiEntry from "rollup-plugin-multi-entry";
-
+import multiEntry from 'rollup-plugin-multi-entry';
 
 // 代码头
-const banner =
-    `/*!
+const banner = `/*!
  * ${pkg.title} v${pkg.version}
  * (c) 2018-${new Date().getFullYear()} ${pkg.author.name}
  * ${pkg.homepage}
  * Released under the ${pkg.license} License.
  */
- `
+ `;
 
 export default {
-    input: './src/ContextMenu.ts',
-    plugins: [
-        (isDev && serve({
-            open: true,
-            host: 'localhost',
-            port: 8080,
-            contentBase: ['demo',"dist","static"],
-            historyApiFallback: false,
-            //set headers
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-            }
-        })),
-        (isDev &&  livereload("demo")),
-        (isDev && multiEntry()),
-        // 代码中的__VERSION__字符串会被package.json中的version字段所替代
-        replace({
-            __VERSION__: pkg.version
-        }),
-        typescript({
-            exclude: 'node_modules/**',
-            typescript: require('typescript'),
-            tsconfigDefaults: defaults,
-            tsconfig: "tsconfig.json",
-            tsconfigOverride: override
-
-        }),
-        json(),
-        localResolve(),
-        eslint({
-            include: ['src/**/*.js']
-        }),
-        tslint({
-            include: ['src/**/*.ts']
-        }),
-        filesize(),
-        peerDepsExternal(),
-        nodeResolve({
-            mainFields: ['module', 'main'],
-        }),
-        commonjs({
-            include: 'node_modules/**'
-        }),
-        postcss({
-            extract: true,
-            plugins: [
-                simplevars(),
-                nested(),
-                cssnext({warnForDuplicates: false,}),
-                cssnano(),
-            ],
-            extensions: ['.css'],
-        }),
-        sourceMaps(),
-        babel({
-            exclude: 'node_modules/**',
-        }),
-        terser({
-            output: {
-                comments: /contextmenu/,
-            },
-            compress: {
-                pure_funcs: isDev?[]:['console.log'] // 去掉console.log函数
-            },
-        }),
-        {banner: banner},
-    ],
-    output: [
-        {
-            format: 'cjs',
-            // 生成的文件名和路径
-            // package.json的main字段, 也就是模块的入口文件
-            file: pkg.main,
-            sourcemap: true,
-        },
-        {
-            format: 'es',
-            // rollup和webpack识别的入口文件, 如果没有该字段, 那么会去读取main字段
-            file: pkg.module,
-            sourcemap: true,
-        },
-        {
-            format: 'umd',
-            name: 'contextmenu',
-            file: pkg.browser,
-            sourcemap: true,
+  input: './src/ContextMenu.ts',
+  plugins: [
+    isDev &&
+      serve({
+        open: true,
+        host: '0.0.0.0',
+        port: 8080,
+        contentBase: ['demo', 'dist', 'static'],
+        historyApiFallback: false,
+        //set headers
+        headers: {
+          'Access-Control-Allow-Origin': '*'
         }
-    ]
+      }),
+    isDev && livereload('demo'),
+    isDev && multiEntry(),
+    // 代码中的__VERSION__字符串会被package.json中的version字段所替代
+    replace({
+      __VERSION__: pkg.version
+    }),
+    typescript({
+      exclude: 'node_modules/**',
+      typescript: require('typescript'),
+      tsconfigDefaults: defaults,
+      tsconfig: 'tsconfig.json',
+      tsconfigOverride: override
+    }),
+    json(),
+    localResolve(),
+    eslint({
+      include: ['src/**/*.js']
+    }),
+    tslint({
+      include: ['src/**/*.ts']
+    }),
+    filesize(),
+    peerDepsExternal(),
+    nodeResolve({
+      mainFields: ['module', 'main']
+    }),
+    commonjs({
+      include: 'node_modules/**'
+    }),
+    postcss({
+      extract: true,
+      plugins: [simplevars(), nested(), cssnext({warnForDuplicates: false}), cssnano()],
+      extensions: ['.css']
+    }),
+    sourceMaps(),
+    babel({
+      exclude: 'node_modules/**'
+    }),
+    terser({
+      output: {
+        comments: /contextmenu/
+      },
+      compress: {
+        pure_funcs: isDev ? [] : ['console.log'] // 去掉console.log函数
+      }
+    }),
+    {banner: banner}
+  ],
+  output: [
+    {
+      format: 'cjs',
+      // 生成的文件名和路径
+      // package.json的main字段, 也就是模块的入口文件
+      file: pkg.main,
+      sourcemap: true
+    },
+    {
+      format: 'es',
+      // rollup和webpack识别的入口文件, 如果没有该字段, 那么会去读取main字段
+      file: pkg.module,
+      sourcemap: true
+    },
+    {
+      format: 'umd',
+      name: 'contextmenu',
+      file: pkg.browser,
+      sourcemap: true
+    }
+  ]
 };

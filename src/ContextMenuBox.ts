@@ -93,13 +93,12 @@ class ContextMenuBox {
           } catch (e) {
             e.toString();
           }
-          console.log(el);
           return true;
         }
       })
         .then((canvas: any) => {
           menu.fixed({
-            width: canvas.width / 2,
+            width: canvas.width / 2 + 24,
             height: canvas.height / 2
           });
           const location = menu.location;

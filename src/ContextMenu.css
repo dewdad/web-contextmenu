@@ -68,7 +68,8 @@
 .__context__menu__item_icon {
   width: 20px;
   height: 20px;
-  min-width: 8px;
+  min-width: 20px;
+  min-height: 20px;
   border-radius: 2px;
   margin: 6px;
 }
@@ -79,6 +80,8 @@
   flex-grow: 1;
   font-size: 16px;
   color: rgba(0, 0, 0, 0.9);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .__context__menu__item_hotkey {
@@ -91,6 +94,8 @@
 .__context__menu__item_arrow {
   width: 16px;
   height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   margin-left: 8px;
   margin-right: 8px;
   opacity: 0.5;

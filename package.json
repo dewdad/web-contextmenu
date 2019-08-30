@@ -98,6 +98,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "html2canvas": "^1.0.0-rc.3"
   },
   "engines": {
