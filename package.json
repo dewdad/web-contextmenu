@@ -14,7 +14,7 @@
     "prettier": "prettier --write **/*.{js,ts,json,css}",
     "serve": "rollup -c -w",
     "build": "tsc && cross-env NODE_ENV=production rollup -c",
-    "package:publish": "yarn clear && yarn build && yarn publish --access=public",
+    "package:publish": "yarn clear && yarn build && npm publish --access=public",
     "package:unpublish": "npm unpublish web-contextmenu --force"
   },
   "keywords": [
