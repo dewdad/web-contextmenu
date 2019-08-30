@@ -35,6 +35,8 @@ const ContextMenu: any = {
       Vue.prototype.$menu = this;
     }
 
+    window.addEventListener('keyup', this.hide, true);
+    window.addEventListener('contextmenu', this.hide, true);
     window.addEventListener('click', this.hide, true);
     window.addEventListener('resize', this.hide, true);
   },

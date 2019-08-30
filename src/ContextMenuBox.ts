@@ -10,6 +10,7 @@ const MenuItemHoverClassName = '__context__menu__item-hover';
 
 class ContextMenuBox {
   private readonly manager: any;
+
   constructor(manager: any) {
     this.manager = manager;
   }
@@ -63,7 +64,39 @@ class ContextMenuBox {
     document.body.appendChild(box);
 
     setTimeout(() => {
-      html2canvas(box)
+      html2canvas(box, {
+        ignoreElements: (el: any) => {
+          try {
+            if (el.className.indexOf('__context__menu') !== -1) {
+              return false;
+            }
+            const tag = el.tagName.toLowerCase();
+            if (tag === 'link') {
+              if (el.href && el.href.toString().indexOf('contextmenu') !== -1) {
+                return false;
+              }
+            }
+            if (tag === 'script') {
+              if (el.href && el.href.toString().indexOf('contextmenu') !== -1) {
+                return false;
+              }
+            }
+            if (tag === 'style' && (<Element>el).innerHTML.indexOf('__context__menu')! !== -1) {
+              return false;
+            }
+            const array = ['body', 'head', 'meta'];
+            for (let i = 0; i < array.length; i++) {
+              if (array[i] === tag) {
+                return false;
+              }
+            }
+          } catch (e) {
+            e.toString();
+          }
+          console.log(el);
+          return true;
+        }
+      })
         .then((canvas: any) => {
           menu.fixed({
             width: canvas.width / 2,
