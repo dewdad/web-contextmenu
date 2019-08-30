@@ -14,6 +14,10 @@ const state = {
   installed: false
 };
 
+function isString(str: any) {
+  return str && typeof str == 'string' && str.constructor == String;
+}
+
 const ContextMenu: any = {
   get i18n(): (key: string) => string {
     return manager.i18n;
@@ -78,7 +82,7 @@ const ContextMenu: any = {
         event.stopPropagation(); // 停止冒泡
       }
       const target: any = e.target;
-      if (target && target.className && target.className.indexOf('__context__menu') !== -1) {
+      if (target && isString(target.className) && target.className.indexOf('__context__menu') !== -1) {
         return;
       }
     }

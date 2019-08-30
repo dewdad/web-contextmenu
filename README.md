@@ -8,7 +8,7 @@
 - [X] simply & easily
 - [X] auto hide (when click outer or resize)
 - [X] auto adjust location(keep menu in browser of visibility area)
-- [X] infinite sub level
+- [X] infinite submenu
 
 ### Install
 ```sh
