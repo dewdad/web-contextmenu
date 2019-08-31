@@ -58,7 +58,19 @@ class ContextMenuBox {
     box.oncontextmenu = (e: any) => {
       e.preventDefault();
       e.stopPropagation();
+      e.cancelBubble = true;
+      e.returnValue = false;
     };
+    box.onmousewheel = (e: any) => {
+      let delta = e.wheelDelta || e.detail || 0;
+      box.scrollTop -= delta;
+
+      e.preventDefault();
+      e.stopPropagation();
+      e.cancelBubble = true;
+      e.returnValue = false;
+    };
+
     this.addItems(menu, box);
 
     document.body.appendChild(box);
@@ -98,7 +110,7 @@ class ContextMenuBox {
       })
         .then((canvas: any) => {
           menu.fixed({
-            width: canvas.width / 2 + 24,
+            width: canvas.width / 2 + 16,
             height: canvas.height / 2
           });
           const location = menu.location;

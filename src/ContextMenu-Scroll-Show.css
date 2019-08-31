@@ -1,0 +1,29 @@
+.__context__menu__box::-webkit-scrollbar {
+  width: 3px;
+  border-radius: 5px;
+}
+
+.__context__menu__box::-webkit-scrollbar-button:vertical {
+  display: none;
+}
+
+.__context__menu__box::-webkit-scrollbar-track:vertical {
+  background-color: orange;
+}
+
+.__context__menu__box::-webkit-scrollbar-track-piece {
+  background: #f4f4f4;
+}
+
+.__context__menu__box::-webkit-scrollbar-thumb:vertical {
+  background-color: orange;
+  border-radius: 5px;
+}
+
+.__context__menu__box::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: darkorange;
+}
+
+.__context__menu__box::-webkit-scrollbar-corner:vertical {
+  background-color: #535353;
+}
