@@ -294,7 +294,6 @@ yarn build
 
 - [X] [typescript](https://www.typescriptlang.org/)
 - [X] [rollup](https://www.rollupjs.com/) : generate libs `js` `ts` `css`
-- [X] [html2canvas](https://html2canvas.hertzen.com/) : compute the menubox size
 - [X] [babel](https://babeljs.io/)
 - [X] some other dev and package plugins see [package.json](./package.json)
 

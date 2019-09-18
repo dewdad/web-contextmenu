@@ -2,8 +2,6 @@
 
 import Menu from './Menu';
 
-import html2canvas from 'html2canvas';
-
 const MenuBoxClassName = 'no-select __context__menu__box';
 const MenuItemClassName = '__context__menu__item';
 const MenuItemHoverClassName = '__context__menu__item-hover';
@@ -76,54 +74,17 @@ class ContextMenuBox {
     document.body.appendChild(box);
 
     setTimeout(() => {
-      html2canvas(box, {
-        ignoreElements: (el: any) => {
-          try {
-            if (el.className.indexOf('__context__menu') !== -1) {
-              return false;
-            }
-            const tag = el.tagName.toLowerCase();
-            if (tag === 'link') {
-              if (el.href && el.href.toString().indexOf('contextmenu') !== -1) {
-                return false;
-              }
-            }
-            if (tag === 'script') {
-              if (el.href && el.href.toString().indexOf('contextmenu') !== -1) {
-                return false;
-              }
-            }
-            if (tag === 'style' && (<Element>el).innerHTML.indexOf('__context__menu')! !== -1) {
-              return false;
-            }
-            const array = ['body', 'head', 'meta'];
-            for (let i = 0; i < array.length; i++) {
-              if (array[i] === tag) {
-                return false;
-              }
-            }
-          } catch (e) {
-            e.toString();
-          }
-          return true;
-        }
-      })
-        .then((canvas: any) => {
-          menu.fixed({
-            width: canvas.width / 2 + 16,
-            height: canvas.height / 2
-          });
-          const location = menu.location;
+      menu.fixed({
+        width: box.offsetWidth + 16,
+        height: box.offsetHeight
+      });
+      const location = menu.location;
 
-          box.style.width = location.w + 'px';
-          box.style.height = location.h + 'px';
-          box.style.top = location.t + 'px';
-          box.style.left = location.l + 'px';
-          box.style.visibility = 'visible';
-        })
-        .catch(err => {
-          err.toString();
-        });
+      box.style.width = location.w + 'px';
+      box.style.height = location.h + 'px';
+      box.style.top = location.t + 'px';
+      box.style.left = location.l + 'px';
+      box.style.visibility = 'visible';
     }, 50);
   }
 
