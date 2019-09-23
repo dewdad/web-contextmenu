@@ -1,6 +1,6 @@
 'use strict';
 
-import 'babel-polyfill';
+// import 'babel-polyfill';
 
 import './ContextMenu.css';
 import './ContextMenu-Scroll-Show.css';
