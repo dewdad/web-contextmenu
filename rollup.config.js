@@ -1,4 +1,5 @@
 'use strict';
+const fs = require('fs');
 
 import babel from 'rollup-plugin-babel';
 // 为了让rollup识别commonjs类型的包,默认只支持导入ES6
@@ -61,15 +62,34 @@ import multiEntry from 'rollup-plugin-multi-entry';
 
 // 代码头
 const banner = `/*!
- * ${pkg.title} v${pkg.version}
+ * ${pkg.name}.js v${pkg.version}
  * (c) 2018-${new Date().getFullYear()} ${pkg.author.name}
  * ${pkg.homepage}
  * Released under the ${pkg.license} License.
  */
  `;
+var findSrc = function(dir = './src/') {
+  const title = pkg.title.toLowerCase();
+  const list = fs.readdirSync(dir);
+  for (let i in list) {
+    const item = list[i];
+    if (!item.endsWith('js') && !item.endsWith('ts')) {
+      continue;
+    }
+    const filename = item.substr(0, item.lastIndexOf('.')).toLowerCase();
+    const file = dir + item;
+    var stat = fs.statSync(file);
+    if (stat && stat.isFile()) {
+      if (filename === title) {
+        return file;
+      }
+    }
+  }
+  return undefined;
+};
 
 export default {
-  input: './src/ContextMenu.ts',
+  input: findSrc(),
   plugins: [
     isDev &&
       serve({
@@ -123,7 +143,7 @@ export default {
     }),
     terser({
       output: {
-        comments: /contextmenu/
+        comments: new RegExp(pkg.title)
       },
       compress: {
         pure_funcs: isDev ? [] : ['console.log'] // 去掉console.log函数
@@ -147,7 +167,7 @@ export default {
     },
     {
       format: 'umd',
-      name: 'contextmenu',
+      name: pkg.title,
       file: pkg.browser,
       sourcemap: true
     }
