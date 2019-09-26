@@ -115,7 +115,8 @@ class ContextMenuBox {
       const showHotKeyHint = !showHotKey && hotKeyMax.length > 0;
       const showArrow = item.children.length > 0;
 
-      div.className = MenuItemClassName;
+      div.setAttribute('enabled', item.enabled);
+      div.className = ` ${MenuItemClassName} ${item.enabled ? '' : 'grayscale'}`;
       if (!item.name || item.name.length === 0) {
         div.innerHTML = `
                 <div class="__context__menu__item_divider"></div>
@@ -126,7 +127,7 @@ class ContextMenuBox {
 
                 <img class="__context__menu__item_icon" src="${icon}" />
             
-                <div class="__context__menu__item_text">${name}</div>
+                <div class="__context__menu__item_text ${item.enabled ? '' : 'grayscale'}">${name}</div>
             
                 <div class="__context__menu__item_hotkey"
                     style="display:${showHotKey ? 'block' : 'none'}">
@@ -147,13 +148,13 @@ class ContextMenuBox {
                  style="display:${!showArrow && !showHotKey ? 'block' : 'none'}"/>
             `;
 
-        div.onmouseover = (i => {
+        div.onmouseover = ((i, e) => {
           return () => {
-            menu.hover = i;
+            menu.hover = e ? i : -1;
           };
-        })(parseInt(i));
+        })(parseInt(i), item.enabled);
 
-        if (item.onclick) {
+        if (item.enabled && item.onclick) {
           div.onclick = () => {
             this.manager.hide();
             setTimeout(() => {
@@ -170,10 +171,11 @@ class ContextMenuBox {
     menu.onOutTrigger = () => {
       for (let i = 0; i < box.children.length; i++) {
         const child = box.children[i];
+        const enabled = child.getAttribute('enabled');
         if (menu.hover === i) {
           child.className = MenuItemClassName + ' ' + MenuItemHoverClassName;
         } else {
-          child.className = MenuItemClassName;
+          child.className = ` ${MenuItemClassName} ${enabled !== 'false' ? '' : 'grayscale'}`;
         }
       }
     };

@@ -8,6 +8,7 @@ class MenuBuilderCache {
   builder?: MenuBuilder;
   icon?: any;
   hotkey?: string;
+  enable: boolean = true;
 
   constructor(name: string, click?: Function, option?: string | MenuBuilder, icon?: any) {
     this.name = name;
@@ -26,6 +27,11 @@ class MenuBuilder {
 
   constructor() {
     this.list = [];
+  }
+
+  cur() {
+    const len = this.list.length;
+    return len > 0 ? this.list[len - 1] : undefined;
   }
 
   /**
@@ -48,6 +54,33 @@ class MenuBuilder {
     return this;
   }
 
+  hotkey(hotkey: string) {
+    const cur = this.cur();
+    if (!cur || cur.name) {
+      return;
+    }
+    cur.hotkey = hotkey;
+    return this;
+  }
+
+  icon(icon: any) {
+    const cur = this.cur();
+    if (!cur) {
+      return;
+    }
+    cur.icon = icon;
+    return this;
+  }
+
+  enable(enable: boolean) {
+    const cur = this.cur();
+    if (!cur) {
+      return;
+    }
+    cur.enable = enable;
+    return this;
+  }
+
   divider() {
     this.list.push(new MenuBuilderCache(''));
   }
@@ -60,6 +93,7 @@ class MenuBuilder {
       menuItem.index = parseInt(index);
       menuItem.icon = item.icon;
       menuItem.hotkey = item.hotkey || '';
+      menuItem.enabled = item.enable;
       menuItem.children = item.builder ? item.builder.build() : [];
       list.push(menuItem);
     }

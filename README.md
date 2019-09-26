@@ -234,7 +234,8 @@ const menulist = (function () {
 
     builder.divider();
 
-    builder.item("copy", copy, "ctrl+c", "./icon/copy.png");
+    // grayscale for enable=false
+    builder.item("copy", copy, "ctrl+c", "./icon/copy.png").enable(false);
     builder.item("paste", paste, "ctrl+v", "./icon/paste.png");
 
     builder.divider();

@@ -10,21 +10,23 @@ const menulist = (function() {
     b.item('alert2', toast);
   });
 
-  builder.item('submenu', toast, function(b) {
-    b.item('中文中文中文中文中文中文中文', toast);
-    b.item('EnglishEnglishEnglishEnglish', toast, function(b) {
+  builder
+    .item('submenu', toast, function(b) {
       b.item('中文中文中文中文中文中文中文', toast);
       b.item('EnglishEnglishEnglishEnglish', toast, function(b) {
         b.item('中文中文中文中文中文中文中文', toast);
-        b.item('EnglishEnglishEnglishEnglish', toast);
+        b.item('EnglishEnglishEnglishEnglish', toast, function(b) {
+          b.item('中文中文中文中文中文中文中文', toast);
+          b.item('EnglishEnglishEnglishEnglish', toast);
+        });
       });
-    });
-  });
+    })
+    .enable(false);
 
   builder.divider();
 
-  builder.item('copy', toast, 'ctrl+c', './icon/copy.png');
-  builder.item('paste', toast, 'ctrl+v', './icon/paste.png');
+  builder.item('copy', toast, 'ctrl+c', './icon/copy.png').enable(false);
+  builder.item('paste', toast, 'ctrl+v', './icon/paste.png').enable(false);
 
   builder.divider();
 

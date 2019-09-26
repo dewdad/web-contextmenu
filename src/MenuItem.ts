@@ -8,6 +8,7 @@ class MenuItem {
     children: Array<MenuItem>;
     icon: string;
     hotkey: string;
+    enabled: boolean;
   };
 
   constructor(name: string, callback?: Function, children?: Array<MenuItem>) {
@@ -17,7 +18,8 @@ class MenuItem {
       onclick: callback,
       children: children ? children : [],
       icon: '',
-      hotkey: ''
+      hotkey: '',
+      enabled: true
     };
   }
 
@@ -35,6 +37,14 @@ class MenuItem {
 
   set name(val: string) {
     this._proxy.name = val;
+  }
+
+  get enabled(): boolean {
+    return this._proxy.enabled;
+  }
+
+  set enabled(val: boolean) {
+    this._proxy.enabled = val;
   }
 
   get icon(): string {
