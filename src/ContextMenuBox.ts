@@ -127,7 +127,7 @@ class ContextMenuBox {
 
                 <img class="__context__menu__item_icon" src="${icon}" />
             
-                <div class="__context__menu__item_text ${item.enabled ? '' : 'grayscale'}">${name}</div>
+                <div class="__context__menu__item_text">${name}</div>
             
                 <div class="__context__menu__item_hotkey"
                     style="display:${showHotKey ? 'block' : 'none'}">
