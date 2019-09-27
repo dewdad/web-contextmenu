@@ -1,6 +1,9 @@
 # Html5 ContextMenu
 
 
+[![npm](https://badgen.net/npm/v/web-contextmenu)](https://npm.im/web-contextmenu)
+
+
 - [X] support html5 and other framework sub as vue
 - [X] item icon & hotkey string & submenu arrow
 - [X] auto size
