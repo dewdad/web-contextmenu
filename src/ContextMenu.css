@@ -29,8 +29,12 @@
 
   border: 0px solid #999;
   border-radius: 1px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   overflow: auto;
+
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
 .__context__menu__item {
