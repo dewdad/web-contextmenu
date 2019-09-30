@@ -2,9 +2,9 @@
 
 import Menu from './Menu';
 
-const MenuBoxClassName = 'no-select __context__menu__box';
-const MenuItemClassName = '__context__menu__item';
-const MenuItemHoverClassName = '__context__menu__item-hover';
+const MenuBoxClassName = '__context__menu__box';
+const MenuItemClassName = '__context__menu__item  no-select';
+const MenuItemHoverClassName = '__context__menu__item-hover no-select';
 
 class ContextMenuBox {
   private readonly manager: any;
@@ -125,7 +125,7 @@ class ContextMenuBox {
         const name = this.manager.i18n ? this.manager.i18n(item.name) || item.name : item.name;
         div.innerHTML = `
 
-                <img class="__context__menu__item_icon" src="${icon}" />
+                <img class="__context__menu__item_icon" src="${icon}" draggable="false" />
             
                 <div class="__context__menu__item_text">${name}</div>
             

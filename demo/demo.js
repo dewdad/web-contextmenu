@@ -25,8 +25,8 @@ const menulist = (function() {
 
   builder.divider();
 
-  builder.item('copy', toast, 'ctrl+c', './icon/copy.png').enable(false);
-  builder.item('paste', toast, 'ctrl+v', './icon/paste.png').enable(false);
+  builder.item('copy', toast, 'ctrl+c', './icon/copy.png');
+  builder.item('paste', toast, 'ctrl+v', './icon/paste.png');
 
   builder.divider();
 
@@ -39,7 +39,10 @@ const menulist = (function() {
     './icon/refresh.png'
   );
   for (let i = 0; i < 10; i++) {
-    builder.item('about', toast, null, './icon/about.png');
+    builder
+      .item('about', toast, null, './icon/about.png')
+      // 设置是否可用
+      .enable(i % 2 === 0);
   }
   builder.item('no-click');
 

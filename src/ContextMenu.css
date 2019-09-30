@@ -1,27 +1,5 @@
 /**/
 
-.no-select {
-  moz-user-select: -moz-none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.grayscale {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-  _filter: none;
-
-  -moz-opacity: 0.6;
-  opacity: 0.6;
-}
-
 .__context__menu__box {
   background: white;
   stroke-width: 1px;
@@ -37,7 +15,29 @@
   -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
-.__context__menu__item {
+.__context__menu__box .no-select {
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.__context__menu__box .grayscale {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+  _filter: none;
+
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+}
+
+.__context__menu__box .__context__menu__item {
   /* 居中 */
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -47,13 +47,13 @@
   display: -webkit-flex;
 }
 
-.__context__menu__item-hover {
+.__context__menu__box .__context__menu__item-hover {
   border-radius: 1px;
   background-color: whitesmoke;
   color: white;
 }
 
-.__context__menu__item_icon {
+.__context__menu__box .__context__menu__item_icon {
   width: 20px;
   height: 20px;
   min-width: 20px;
@@ -62,7 +62,7 @@
   margin: 6px;
 }
 
-.__context__menu__item_text {
+.__context__menu__box .__context__menu__item_text {
   margin-left: 4px;
   margin-right: 16px;
   flex-grow: 1;
@@ -72,14 +72,14 @@
   color: rgba(0, 0, 0, 0.9);
 }
 
-.__context__menu__item_hotkey {
+.__context__menu__box .__context__menu__item_hotkey {
   margin-left: 12px;
   margin-right: 8px;
   font-size: 8px;
   color: #aaaaaa;
 }
 
-.__context__menu__item_arrow {
+.__context__menu__box .__context__menu__item_arrow {
   width: 16px;
   height: 16px;
   min-width: 16px;
@@ -96,7 +96,7 @@
     no-repeat center/100%;
 }
 
-.__context__menu__item_divider {
+.__context__menu__box .__context__menu__item_divider {
   width: 96%;
   height: 1px;
   background: rgba(196, 196, 196, 0.5);

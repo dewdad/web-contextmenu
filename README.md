@@ -12,6 +12,7 @@
 - [X] auto hide (when click outer or resize)
 - [X] auto adjust location(keep menu in browser of visibility area)
 - [X] infinite submenu
+- [X] item disable option
 
 ### Install
 ```sh
@@ -27,6 +28,8 @@ yarn add web-contextmenu
 ![clickable & scrollable](./screenshort/contextmenu2.gif)
 - auto hide
 ![auto hide](./screenshort/contextmenu3.gif)
+- item disabled
+![item disabled](./screenshort/contextmenu5.png)
 
 ### Usage in html5
 
